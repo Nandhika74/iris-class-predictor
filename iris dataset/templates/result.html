@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prediction Result</title>
+  <style>
+    body {
+      margin: 0;
+      background-image: url('https://t4.ftcdn.net/jpg/13/94/91/81/360_F_1394918192_BJEZdKT7mT4PiED0uEdZVSb6Zspl7iUe.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      animation: bgShift 10s infinite alternate;
+    }
+
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 20px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      text-align: center;
+      transform: perspective(1000px) rotateX(10deg);
+      transition: transform 0.6s ease;
+      width: 350px;
+    }
+
+    .card:hover {
+      transform: perspective(637px) rotateX(360deg) rotateY(5deg) scale(1.02);
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #003366;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px #fff;
+    }
+
+    img {
+      width: 280px;
+      height: auto;
+      border-radius: 15px;
+      margin: 15px 0;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    img:hover {
+      transform: rotate(3deg) scale(1.08);
+    }
+
+    .button {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0be4ae;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .button:hover {
+      background-color: #b30018;
+      transform: translateY(-3px);
+    }
+
+    p {
+      font-size: 18px;
+      color: #639900;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Predicted Species: {{ prediction }}</h2>
+
+    {% if image_url %}
+      <img src="{{ image_url }}" alt="Iris Flower" />
+    {% else %}
+      <p>No image available</p>
+    {% endif %}
+
+    <br>
+    <a href="/" class="button">Try Again</a>
+  </div>
+</body>
+</html>

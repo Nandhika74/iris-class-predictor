@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iris Predictor</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      height: 100vh;
+      background-image: url('https://www.pixelstalk.net/wp-content/uploads/images1/Download-free-Wallpaper-Field-of-Flowers-3.jpg');
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      perspective: 1000px;
+    }
+    .glass-container {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      transform: rotateY(10deg);
+      transition: transform 0.5s;
+    }
+    .glass-container:hover {
+      transform: rotateY(0deg);
+    }
+    h1 {
+      text-align: center;
+      color: rgb(0, 0, 0);
+      margin-bottom: 30px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+    }
+    button {
+      padding: 15px;
+      background: #bb0274;
+      color: rgb(19, 16, 16);
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transform: translateZ(10px);
+      transition: transform 0.3s, background 0.3s;
+    }
+    button:hover {
+      background: #4d048a;
+      transform: translateZ(20px);
+    }
+  </style color:black>
+</head>
+<body>
+  <div class="glass-container">
+    <h1><b>IRIS FLOWER CLASSIFIER</b> </h1>
+    <form action="/predict" method="post">
+      <input type="text" name="sepal_length" placeholder="Sepal Length">
+      <input type="text" name="sepal_width" placeholder="Sepal Width">
+      <input type="text" name="petal_length" placeholder="Petal Length">
+      <input type="text" name="petal_width" placeholder="Petal Width">
+      <button type="submit"> Predict</button>
+    </form>
+  </div>
+</body>
+</html>
